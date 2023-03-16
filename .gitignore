@@ -37,5 +37,5 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
-.env
 .vscode/
+.env
