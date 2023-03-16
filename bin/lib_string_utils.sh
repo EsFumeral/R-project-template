@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #### Description: String utils function library
-#### Written by: Guillermo de Ignacio - gdeignacio@fundaciobit.org on 04-2021
+#### Written by: Guillermo de Ignacio - gdeignacio on 01-2023
 
 
 #### THIS FILE USED TO BE SOURCED. THINK TWICE BEFORE UPDATE.
@@ -15,7 +15,6 @@
 ##################################################################
 ##################################################################
 
-
 lib_string_utils.spinal_to_camelcase() {
     IFS=- read -ra str <<<"$1"
     printf '%s' "${str[@]^}"
@@ -24,7 +23,6 @@ lib_string_utils.spinal_to_camelcase() {
 
 ##################################################################
 ##################################################################
-
 
 lib_string_utils.spinal_to_lower() {
     IFS=- read -ra str <<<"$1"
@@ -56,12 +54,13 @@ lib_string_utils.replace_key_value(){
     echo "Value substitution from $old_key_value to $new_key_value"
     # Better use double quoting for sedstring'
     sed -i "s/${old_key_value}/${new_key_value}/" ${file}
+    echo $(cat $file)
 }
 
+
 ##################################################################
 ##################################################################
 
-
-echo ""
-echo lib_string_utils.sh loaded
-echo ""
+lib_string_utils.loaded(){
+    echo lib_string_utils.sh loaded
+}

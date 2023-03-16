@@ -1,3 +1,4 @@
 languageserver
 rlog
 ProjectTemplate
+xlsx

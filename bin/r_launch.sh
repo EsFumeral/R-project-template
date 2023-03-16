@@ -19,9 +19,9 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
-    echo 'Usage: ./install.sh
+    echo 'Usage: ./r_launch.sh script args
 
-Installs R tools from scratch
+Lanunches an R script
 
 '
     exit
@@ -37,14 +37,16 @@ echo ""
 source $PROJECT_PATH/bin/lib_string_utils.sh
 source $PROJECT_PATH/bin/lib_env_utils.sh
 
+lib_env_utils.loadenv ${PROJECT_PATH}
+echo ""
 
 main() {
 
     isLinux=$(lib_env_utils.check_os)
-    echo $isLinux
+    # echo $isLinux
     
     rpath=$(lib_env_utils.check_R)
-    echo $rpath
+    # echo $rpath
 
     if [[ "${rpath}" == "/dev/null" ]]; then
         echo "R not installed. Exiting"

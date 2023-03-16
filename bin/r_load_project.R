@@ -41,7 +41,7 @@ path <- file.path(rpath, libdir)
 library("tibble")
 library("digest")
 library("ProjectTemplate")
-
+library("xlsx")
 setwd("..")
 setwd(ptname)
 

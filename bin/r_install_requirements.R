@@ -14,7 +14,9 @@ setwd(rpath)
 
 getwd()
 
-libdir <- "../packages"
+libdir <- Sys.getenv("R_LIBS_USER")
+java_home <- Sys.getenv("JAVA_HOME")
+
 
 if (file.exists(libdir)) {
   print(paste(libdir, " already exists in", rpath))

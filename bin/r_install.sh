@@ -19,7 +19,7 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
-    echo 'Usage: ./install.sh
+    echo 'Usage: ./r_install.sh
 
 Installs R tools from scratch
 
@@ -54,6 +54,7 @@ get_repositories(){
 main_install(){
     sudo apt-get install --no-install-recommends r-base
     sudo apt-get install libxml2 libxml2-dev xml2
+    sudo apt-get install libpcre2-dev liblzma-dev libbz2-dev
 }
 
 extra_repo(){

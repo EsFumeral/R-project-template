@@ -1,0 +1,8 @@
+# Custom section
+# Use this file for custom app settings
+
+# End custom section
+
+# path update section
+PATH=$JAVA_HOME/bin:$PATH
+# end path update section
