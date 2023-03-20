@@ -59,16 +59,16 @@ else
     $PROJECT_PATH/bin/app_init_data.sh 
 fi
 
-echo ""
-echo "Creating jdk installation folder if not exists"
-if [ -d "$JDK_TARGET" ]; then
-    ### Take no action if $DIR exists ###
-    echo "Skipping ${JDK_TARGET} creation. Folder already exists."
-else
-    ###  Control will jump here if dir does NOT exists ###
-    echo "${JDK_TARGET} not found. Creating ..."
-    $PROJECT_PATH/bin/jdk_jdkinstall.sh
-fi
+#echo ""
+#echo "Creating jdk installation folder if not exists"
+#if [ -d "$JDK_TARGET" ]; then
+#    ### Take no action if $DIR exists ###
+#    echo "Skipping ${JDK_TARGET} creation. Folder already exists."
+#else
+#    ###  Control will jump here if dir does NOT exists ###
+#    echo "${JDK_TARGET} not found. Creating ..."
+#    $PROJECT_PATH/bin/jdk_jdkinstall.sh
+#fi
 
 
 # TO-DO: APP_GENERATION
