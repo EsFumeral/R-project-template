@@ -41,6 +41,12 @@ main(){
 
     mkdir -p $SETTINGS_FOLDER
     for FILE in $TEMPLATE_FOLDER/*; do
+
+        if [ "${FILE##*.}" = "ignore" ]; then
+            echo "Skipping $FILE"
+            continue
+        fi
+
         echo "Loading: "$FILE
         MASK=${FILE%.template}
         FILENAME=${MASK##*/}
