@@ -15,7 +15,7 @@ setwd(rpath)
 getwd()
 
 libdir <- Sys.getenv("R_LIBS_USER")
-# java_home <- Sys.getenv("JAVA_HOME")
+java_home <- Sys.getenv("JAVA_HOME")
 
 
 if (file.exists(libdir)) {
