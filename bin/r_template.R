@@ -15,12 +15,12 @@ args <- commandArgs(trailingOnly = TRUE)
 ptname <- "ProjectTemplate"
 
 # test if there is at least one argument: if not, return an error
-if (length(args) == 0) {
-  stop("At least one argument must be supplied (input file).n", call. = FALSE)
-} else if (length(args) > 0) {
-  # default output file
-  ptname <- args[1]
-}
+#if (length(args) == 0) {
+#  stop("At least one argument must be supplied (input file).n", call. = FALSE)
+#} else if (length(args) > 0) {
+#  # default output file
+#  ptname <- args[1]
+#}
 
 rpath <- Sys.getenv("R_PATH")
 
@@ -49,4 +49,14 @@ getwd()
 
 load.project()
 
-source("main.R")
+source("src/eda.R")
+
+#message(paste(project.info))
+
+# print(names(project.info$cache))
+
+#for (dataset in project.info$data)
+#{
+#  message(paste('Showing top 5 rows of', dataset))
+#  print(head(get(dataset)))
+#}
