@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-#### Description: Installs R packages
+#### Description: Show profile and libPaths
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
 # https://www.r-project.org/

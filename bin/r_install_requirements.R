@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 #### Description: Installs R packages
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
