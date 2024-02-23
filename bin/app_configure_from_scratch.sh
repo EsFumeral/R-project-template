@@ -70,10 +70,35 @@ else
     $PROJECT_PATH/bin/jdk_jdkinstall.sh
 fi
 
-
+echo ""
+echo "Creating maven installation folder if not exists"
+if [ -d "$MAVEN_TARGET" ]; then
+    ### Take no action if $DIR exists ###
+    echo "Skipping ${MAVEN_TARGET} creation. Folder already exists."
+else
+    ###  Control will jump here if dir does NOT exists ###
+    echo "${MAVEN_TARGET} not found. Creating ..."
+    $PROJECT_PATH/bin/mvn_maveninstall.sh
+fi
 # TO-DO: APP_GENERATION
 
 
+echo ""
+echo "Setting up nginx"
+CFPATH=$NGINX_CONF_PATH
+echo "Processing: "$CFPATH
+SETTINGS_FOLDER=$CFPATH
+
+echo ""
+
+if [ -d "$SETTINGS_FOLDER" ]; then
+    ### Take no action if $DIR exists ###
+    echo "Skipping ${SETTINGS_FOLDER} creation. Folder already exists."
+else
+    ###  Control will jump here if dir does NOT exists ###
+    echo "${SETTINGS_FOLDER} not found. Creating ..."
+    $PROJECT_PATH/bin/nginx_deploysetup.sh
+fi
 
 
 echo ""
