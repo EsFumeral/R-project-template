@@ -21,7 +21,7 @@ Clone this repository on your local machine.
 ```bash
 git clone https://github.com/EsFumeral/R-project-template.git
 
-Forking this repository for specific purpose app is recommended
+# Forking this repository for specific purpose app is recommended
 ```
 
 ## Setting environment values
@@ -85,11 +85,17 @@ Once you have updated local files
 
 2. Edit [./settings/200_jdk](./settings.template.d/200_jdk.template) file. These values set default Java Home and installation target. **The environment scope is local to your script**
 
-    By default, JDK version is 11. See [./settings.template.d/200_jdk.template](./settings.template.d/200_jdk.template) to find some examples of other versions downloading. Also, default target is located at HOME dir.
+    By default, JDK version is 11. See [./settings.template.d/200_jdk.template](./settings.template.d/200_jdk.template) to find some examples of other versions downloading. Also, default target is located at project path dir.
 
     ```bash
-    JDK11_TARGET=$HOME/java/${LONG_APP_NAME_LOWER}
+    JDK_BASE_PATH=${APP_PROJECT_PATH}/java
+
+    JDK11_BASEURL=https://download.java.net/java/ga/jdk11/
+    JDK11_LINUX_FILE=openjdk-11_linux-x64_bin.tar.gz
+    JDK11_WINDOWS_FILE=openjdk-11_windows-x64_bin.zip
+    JDK11_TARGET=${JDK_BASE_PATH}/${APP_NAME}
     ```
+    
     See [bin/jdk_jdkinstall.sh](bin/jdk_jdkinstall.sh) for jdk installation.
     Shortcut to [Installing Java Tools](#installing-java-tools) if more detail is needed.
 
@@ -127,30 +133,11 @@ Although is possible to config any type of parameter, passwords should never be 
     git clone https://github.com/EsFumeral/R-project-template.git
     ```
 
-2. Run [docker_install](./bin/docker_install.sh) script to update and install docker.
 
-    ```bash
-    ./bin/docker_install.sh
-    ```
-    Note that we add a new user which default password is "docker" and would better update it, even in preproduction stage.
-
-    ```bash
-    sudo useradd -p $(openssl passwd -1 docker) docker -g docker
-    ```
-
-    ```
-    -p, --password PASSWORD
-        The encrypted password, as returned by crypt(3). The default is to disable the password.
-        Note: This option is not recommended because the password (or encrypted password) will be visible by users listing the processes.
-        You should make sure the password respects the system's password policy. 
-    ```
-
-    See [docker_install](./bin/docker_install.sh)
-
-3. Check preconfigured values and change them as explained above if needed.
+2. Check preconfigured values and change them as explained above if needed.
 
 
-4. Run [app_setenv](./bin/app_setenv.sh) script. It generates an .env file from settings folder content to be allocated in main folder. When loading env variables, this file will be used as input. Repeat steps 2 and 3 as times as you need.
+3. Run [app_setenv](./bin/app_setenv.sh) script. It generates an .env file from settings folder content to be allocated in main folder. When loading env variables, this file will be used as input. Repeat steps 2 and 3 as times as you need.
 
     ```bash
     ./bin/app.setenv.sh
@@ -166,10 +153,6 @@ Although is possible to config any type of parameter, passwords should never be 
     ```bash
     ./bin/jdk_jdkinstall.sh
     ```
-
-
-
-
 
 
 ---
