@@ -48,6 +48,8 @@ else
     mkdir -p $MAVEN_TARGET
 fi
 
+isLinux=$(lib_env_utils.check_os)
+
 if [[ isLinux -eq 1 ]]; then
     MAVEN_FILE=${MAVEN_LINUX_FILE}
     MAVEN_URL=${MAVEN_BASEURL}${MAVEN_FILE}

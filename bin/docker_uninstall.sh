@@ -43,6 +43,8 @@ echo ""
 lib_env_utils.check_os
 echo ""
 
+isLinux=$(lib_env_utils.check_os)
+
 if [[ isLinux -eq 1 ]]; then
 
     sudo systemctl disable docker.service
