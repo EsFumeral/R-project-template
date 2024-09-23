@@ -1,20 +1,36 @@
 #!/usr/bin/env bash
 
-set -o nounset
-set -o errexit
-
 #### Description: Creates a main net app from scratch
-
-####              Following steps are up to you
-####              Execute app_settings.sh
-####                      app_setappname.sh --codapp=codapp --app=app
-####                      app_setenv.sh                
-
 #### Written by: Guillermo de Ignacio - gdeignacio on 11-2022
+
+### Revision 2024-08-01
 
 ######################################
 ###   SETUP FROM TEMPLATE UTILS    ###
 ######################################
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+    echo 'Usage: ./app_configure_minimal.sh
+
+Creates an app from scratch
+
+              Following steps are up to you
+              Execute app_settings.sh
+                      app_setappname.sh --codapp=codapp --app=app
+                      app_setenv.sh    
+
+'
+    exit
+fi
+
 
 echo ""
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
@@ -28,8 +44,10 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
-lib_env_utils.check_os
-echo ""
+
+isLinux=$(lib_env_utils.check_os)
+echo $isLinux
+
 
 ENABLE_JAVA=1
 ENABLE_MAVEN=1

@@ -3,6 +3,8 @@
 #### Description: Build from source and deploy to github repo
 #### Written by: Guillermo de Ignacio - gdeignacio on 11-2021
 
+# Revision 2024-08-01
+
 ###################################
 ###   BUILD MVN UTILS           ###
 ###################################

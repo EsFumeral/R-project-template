@@ -3,6 +3,8 @@
 #### Description: Downloads and installs mvn binaries
 #### Written by: Guillermo de Ignacio - gdeignacio on 04-2021
 
+# Revision 2024-08-01
+
 ###################################
 ###   MAVEN INSTALL UTILS         ###
 ###################################
@@ -18,7 +20,7 @@ fi
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
     echo 'Usage: ./mvn_maveninstall.sh
 
-Downloads and installs mvn binaries
+    Downloads and installs mvn binaries
 
 '
     exit
@@ -36,8 +38,10 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
-lib_env_utils.check_os
-echo ""
+
+isLinux=$(lib_env_utils.check_os)
+echo $isLinux
+
 
 if [ -d "$MAVEN_TARGET" ]; then
     ### Take action if $DIR exists ###
@@ -47,8 +51,6 @@ else
     echo "${MAVEN_TARGET} not found. Creating ..."
     mkdir -p $MAVEN_TARGET
 fi
-
-isLinux=$(lib_env_utils.check_os)
 
 if [[ isLinux -eq 1 ]]; then
     MAVEN_FILE=${MAVEN_LINUX_FILE}

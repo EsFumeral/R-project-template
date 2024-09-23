@@ -7,4 +7,4 @@ WORKDIR /usr/share/nginx/html
 
 COPY dist .
 
-EXPOSE 80 443
+EXPOSE 80 81 443

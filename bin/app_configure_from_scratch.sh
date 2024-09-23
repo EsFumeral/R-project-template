@@ -3,6 +3,7 @@
 #### Description: Init data folders
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
+### Revision 2024-08-01
 
 ######################################
 ###   SETUP FROM TEMPLATE UTILS    ###
@@ -45,6 +46,9 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
 
+isLinux=$(lib_env_utils.check_os)
+echo $isLinux
+
 echo "Begin automated settings"
 
 echo ""
@@ -82,6 +86,48 @@ else
 fi
 # TO-DO: APP_GENERATION
 
+CONF_PATH_ARRAY=($WILDFLY_DEPLOYCONF_PATH $WILDFLY_PROPERTIESCONF_PATH $WILDFLY_BIN_CLI_PATH)
+# echo $JBOSS_EAP_52_CONF_PATH
+SKIP_DEPLOYSETUP=0
+for CFPATH in ${CONF_PATH_ARRAY[*]}; do
+    echo ""
+    echo "Processing: "$CFPATH
+    SETTINGS_FOLDER=$CFPATH
+    echo "Creating configuration $CFPATH folder if not exists"
+    if [ -d "$CFPATH" ]; then
+        ### Take no action if $DIR exists ###
+        echo "Skipping ${CFPATH} creation. Folder already exists."
+        SKIP_DEPLOYSETUP=1
+    fi
+done
+
+echo ""
+if [[ SKIP_DEPLOYSETUP -eq 0 ]]; then
+    echo "Config files not found. Creatinng from template"
+    $PROJECT_PATH/bin/jboss_deploysetup.sh
+    #$PROJECT_PATH/bin/jboss_getgoibusuari.sh
+    #$PROJECT_PATH/bin/jboss_deploygoibusuari.sh
+else
+    echo "Config files already exist. Skipping"
+fi
+
+echo ""
+echo "Setting up keycloak"
+CFPATH=$KEYCLOAK_DEPLOYCONF_PATH
+echo "Processing: "$CFPATH
+SETTINGS_FOLDER=$CFPATH
+
+echo ""
+
+if [ -d "$SETTINGS_FOLDER" ]; then
+    ### Take no action if $DIR exists ###
+    echo "Skipping ${SETTINGS_FOLDER} creation. Folder already exists."
+else
+    ###  Control will jump here if dir does NOT exists ###
+    echo "${SETTINGS_FOLDER} not found. Creating ..."
+    $PROJECT_PATH/bin/keycloak_deploysetup.sh
+fi
+
 
 echo ""
 echo "Setting up nginx"
@@ -98,6 +144,15 @@ else
     ###  Control will jump here if dir does NOT exists ###
     echo "${SETTINGS_FOLDER} not found. Creating ..."
     $PROJECT_PATH/bin/nginx_deploysetup.sh
+fi
+
+
+if [ -d "${APP_FILES_BASE_FOLDER}/${APP_PROJECT_SGBD}" ]; then
+    ### Take no action if $DIR exists ###
+    echo "Skipping database load. Folder already exists."
+else
+    ###  Control will jump here if dir does NOT exists ###
+    echo "${APP_FILES_BASE_FOLDER}/${APP_PROJECT_SGBD} not found. Executing docker_bdload.sh scripts is up to you ..."
 fi
 
 

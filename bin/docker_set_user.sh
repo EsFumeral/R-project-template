@@ -4,6 +4,8 @@
 #### Written by: Guillermo de Ignacio - gdeignacio on 04-2021
 #### WARNING: Check if DOCKER_CUSTOM_USERNAME is set. See settings/500_docker file
 
+# Revision 2024-08-01
+
 ###################################
 ###   DOCKER SET USER           ###
 ###################################
@@ -39,10 +41,9 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
-lib_env_utils.check_os
-echo ""
 
 isLinux=$(lib_env_utils.check_os)
+echo $isLinux
 
 if [[ isLinux -eq 1 ]]; then
     # sudo useradd -p $(openssl passwd -1 docker) docker -g docker

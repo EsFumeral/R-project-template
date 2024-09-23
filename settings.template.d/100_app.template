@@ -65,6 +65,8 @@ APP_PROJECT_FOLDER=${APP_PROJECT_PATH}/${APP_PROJECT_NAME}
 APP_PROJECT_DOCKER_SERVER_NAME=$LONG_APP_NAME_LOWER
 APP_PROJECT_HOST_SERVER_NAME=$LONG_APP_NAME_LOWER
 APP_DOMAIN_NAME=fundaciobit.org
+APP_PACKAGE_NAME=org.fundaciobit
+APP_PACKAGE_PATH=org/fundaciobit
 
 # conf scripts project if needed
 
@@ -98,6 +100,6 @@ APP_FILES_SUBFOLDER_ARRAY="assets bundle var"
 
 # Array of app names camel case separated by spaces. New feature to test.
 # APP_ARRAY ="first-app second-app third-app"
-APP_ARRAY=""
+APP_ARRAY="main/1.0.0 keycloak/24.0.1"
 
 # end app section

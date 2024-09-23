@@ -3,6 +3,7 @@
 #### Description: Creates an .env file from xx_XXenv files in alpabethical order
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
+### Revision 2024-08-01
 
 ##############################
 ###   SETUP ENV VALUES     ###

@@ -2,3 +2,5 @@ languageserver
 rlog
 ProjectTemplate
 xlsx
+httr
+curl

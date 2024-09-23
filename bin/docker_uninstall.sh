@@ -4,6 +4,8 @@
 #### Written by: Guillermo de Ignacio - gdeignacio on 04-2021
 #### WARNING: Check if DOCKER_CUSTOM_USERNAME is set. See settings/500_docker file
 
+# Revision 2024-08-01
+
 ###################################
 ###   DOCKER UNINSTALL UTILS    ###
 ###################################
@@ -20,7 +22,7 @@ fi
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
     echo 'Usage: ./docker_uninstall.sh
 
-Uninstalls dockerr
+Uninstalls docker
 
 '
     exit

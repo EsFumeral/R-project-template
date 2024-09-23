@@ -111,7 +111,7 @@ Once you have updated local files
     # End custom section
 
     # path update section
-    PATH=$JBOSS_HOME/bin:$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+    PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
     # end path update section
     ```
 

@@ -16,9 +16,9 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
-    echo 'Usage: ./minimal.sh
+    echo 'Usage: ./script.sh arg-one arg-two
 
-This is minimal stuff
+This is an awesome bash script to make your life better.
 
 '
     exit

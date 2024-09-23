@@ -3,6 +3,8 @@
 #### Description: Clear environment backup files
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
+### Revision 2024-08-01
+
 #########################################
 ###   CLEAR ENVIRONMENT BACKUP UTILS  ###
 #########################################

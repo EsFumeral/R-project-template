@@ -3,6 +3,8 @@
 #### Description: Installs R packages
 #### Written by: Guillermo de Ignacio - gdeignacio on 12-2022
 
+# Revision 2024-08-01
+
 # https://www.r-project.org/
 # https://cloud.r-project.org/
 
@@ -41,7 +43,7 @@ if (file.exists(gitignore_filename)) {
 
 setwd(rpath)
 
-requirements_filename <- "requirements.txt"
+requirements_filename <- "R_requirements.txt"
 print(paste("Requirements file: ", requirements_filename))
 requirements_file <- file(requirements_filename, open = "r")
 

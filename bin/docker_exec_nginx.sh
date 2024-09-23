@@ -3,6 +3,8 @@
 #### Description: Execs nginx docker container
 #### Written by: Guillermo de Ignacio - gdeignacio on 04-2021
 
+# Revision 2024-08-01
+
 ###################################
 ###         Exec                ###
 ###################################
@@ -18,7 +20,7 @@ fi
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
     echo 'Usage: ./docker_exec_nginx.sh
 
-Connects to a running nginx container
+    Connects to a running nginx container
 
 '
     exit
@@ -36,10 +38,14 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
-lib_env_utils.check_os
-echo ""
-lib_env_utils.check_docker
-echo ""
+
+isLinux=$(lib_env_utils.check_os)
+echo $isLinux
+
+dckr=$(lib_env_utils.check_docker)
+echo $dckr
+
+DOCKER=$dckr
 
 if [[ "${DOCKER}" == "/dev/null" ]]; then
   echo "Docker not installed. Exiting"

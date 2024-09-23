@@ -3,6 +3,8 @@
 #### Description: Creates custom settings files from template
 #### Written by: Guillermo de Ignacio - gdeignacio on 01-2023
 
+### Revision 2024-08-01
+
 ######################################
 ###   SETUP FROM TEMPLATE UTILS    ###
 ######################################

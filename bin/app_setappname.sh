@@ -3,6 +3,8 @@
 #### Description: Overrides default app name with custom values
 #### Written by: Guillermo de Ignacio - gdeignacio on 01-2023
 
+### Revision 2024-08-01
+
 ################################
 ###   SETUP APP NAME UTILS   ###
 ################################
