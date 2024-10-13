@@ -1,15 +1,30 @@
-#!/bin/bash
-
-#set -o nounset
-#set -o errexit
+#!/usr/bin/env bash
 
 #### Description: Installs python tools
-#### Written by: Guillermo de Ignacio - gdeignacio@gmail.com on 11-2022
-#### WARNING: Check if DOCKER_CUSTOM_USERNAME is set. See settings/500_docker file
+#### Written by: Guillermo de Ignacio - gdeignacio on 11-2022
+
+# Revision 2024-08-01
 
 ###################################
 ###   DOCKER INSTALL UTILS      ###
 ###################################
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+    echo 'Usage: ./python_venv.sh
+
+    Installs python tools
+
+'
+    exit
+fi
 
 echo ""
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
@@ -25,8 +40,9 @@ source $PROJECT_PATH/bin/lib_env_utils.sh
 
 lib_env_utils.loadenv ${PROJECT_PATH}
 echo ""
-lib_env_utils.check_os
-echo ""
+
+isLinux=$(lib_env_utils.check_os)
+echo $isLinux
 
 virtualenv ${PROJECT_PATH}/../${APP_PROJECT_NAME}-virtualenv --python=${PYTHON}
 
